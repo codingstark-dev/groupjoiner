@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:groupjoiner/screen/Groups.dart';
 import 'package:groupjoiner/screen/addgroup.dart';
 import 'package:groupjoiner/screen/groupcategory.dart';
+import 'package:groupjoiner/utils/constant.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -27,6 +28,7 @@ class _HomeState extends State<Home> {
     // pageController.jumpToPage(index);
   }
 
+  List _groupsTitleTile = ["Latest Groups", "Categories", "Add Your Group"];
   @override
   Widget build(BuildContext context) {
     // FirebaseFirestore.instance.collection('Groups').get().then((value) {
@@ -55,12 +57,13 @@ class _HomeState extends State<Home> {
       });
     });
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: Colors.grey[200],
       appBar: AppBar(
-        backgroundColor: const Color(0xff4cc93d),
-        title: const Text(
-          "Latest Groups",
-          style: TextStyle(fontSize: 25),
+        backgroundColor: greenColor,
+        title: Text(
+          _groupsTitleTile[_selectedIndex],
+          style: const TextStyle(fontSize: 25),
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
@@ -87,7 +90,7 @@ class _HomeState extends State<Home> {
           ],
           type: BottomNavigationBarType.fixed,
           currentIndex: _selectedIndex,
-          selectedItemColor: const Color(0xff4cc93d),
+          selectedItemColor: greenColor,
           iconSize: 40,
           onTap: _onItemTapped,
           elevation: 5),
