@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:groupjoiner/utils/constant.dart';
 import 'package:profanity_filter/profanity_filter.dart';
@@ -47,20 +48,20 @@ class _AddGroupState extends State<AddGroup> {
               decoration: const InputDecoration(
                 fillColor: Colors.white,
                 hoverColor: Colors.white,
-                enabledBorder: const OutlineInputBorder(
+                enabledBorder: OutlineInputBorder(
                   borderSide: BorderSide(color: Colors.white),
                 ),
                 filled: true,
                 focusColor: Colors.white,
-                disabledBorder: const UnderlineInputBorder(
-                  borderSide: const BorderSide(color: Colors.white),
+                disabledBorder: UnderlineInputBorder(
+                  borderSide: BorderSide(color: Colors.white),
                 ),
-                focusedBorder: const OutlineInputBorder(
+                focusedBorder: OutlineInputBorder(
                   borderSide: BorderSide(color: Color(0xff4cc93d)),
                 ),
                 hintText: 'Enter Group Name',
                 contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
-                border: const OutlineInputBorder(),
+                border: OutlineInputBorder(),
               ),
             ),
           ),
@@ -233,7 +234,9 @@ class _AddGroupState extends State<AddGroup> {
                         );
                       });
                 } else {
-                  print(_validURL);
+                  if (kDebugMode) {
+                    print(_validURL);
+                  }
                   if (!_validURL) {
                     showDialog(
                         context: context,
@@ -356,11 +359,13 @@ class _AddGroupState extends State<AddGroup> {
                 }
               }
               // print(_validURL);
-              print({
-                _groupLinkController.text,
-                _groupNameController.text,
-                _chosenValue
-              });
+              if (kDebugMode) {
+                print({
+                  _groupLinkController.text,
+                  _groupNameController.text,
+                  _chosenValue
+                });
+              }
             },
             child: const Text(
               "ADD GROUP",

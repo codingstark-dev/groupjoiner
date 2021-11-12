@@ -1,5 +1,6 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/foundation.dart';
+// ignore: file_names
+// ignore_for_file: file_names, duplicate_ignore
+
 import 'package:flutter/material.dart';
 import 'package:groupjoiner/screen/Groups.dart';
 import 'package:groupjoiner/screen/addgroup.dart';
@@ -28,7 +29,11 @@ class _HomeState extends State<Home> {
     // pageController.jumpToPage(index);
   }
 
-  List _groupsTitleTile = ["Latest Groups", "Categories", "Add Your Group"];
+  final List _groupsTitleTile = [
+    "Latest Groups",
+    "Categories",
+    "Add Your Group"
+  ];
   @override
   Widget build(BuildContext context) {
     // FirebaseFirestore.instance.collection('Groups').get().then((value) {
