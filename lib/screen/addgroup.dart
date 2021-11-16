@@ -129,7 +129,7 @@ class _AddGroupState extends State<AddGroup> {
                   });
                 },
                 hint: const Text(
-                  "Please choose a langauage",
+                  "Please choose a category",
                   style: TextStyle(
                       color: Colors.black,
                       fontSize: 16,
